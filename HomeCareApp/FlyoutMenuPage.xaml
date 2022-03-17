@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:HomeCareApp"
+              xmlns:views="clr-namespace:HomeCareApp.Views"
+             Title="Flyout Menu"
+             x:Class="HomeCareApp.FlyoutMenuPage">
+    <StackLayout>
+        <ListView x:Name="listview" x:FieldModifier="public">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:FlyoutPageMenuFlyoutMenuItem}">
+                    <local:FlyoutPageMenuFlyoutMenuItem Title="Home"  TargetType="{x:Type views:HomePage}"/>
+                    <local:FlyoutPageMenuFlyoutMenuItem Title="Patient"  TargetType="{x:Type views:PatientDetail}"/>
+                    <local:FlyoutPageMenuFlyoutMenuItem Title="Logout"  TargetType="{x:Type views:LoginPage}"/>
+
+                </x:Array>
+
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="33"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding IconSource}"/>
+                            <Label Grid.Column="1" Text="{Binding Title}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+            
+            
+            
+        </ListView>
+        
+        
+        
+        
+        
+    </StackLayout>
+</ContentPage>

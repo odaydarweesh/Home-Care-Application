@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Patients"
+             x:Class="HomeCareApp.Views.PatientPageDetails">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <SearchBar Placeholder="Search Patient"
+                   TextChanged="SearchBar_TextChanged"/>
+        <CollectionView x:Name="myPatient"
+                          SelectionMode="Single"
+                          Margin="20,5,20,0">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Edit"
+                                           BackgroundColor="LightBlue"
+                                           CommandParameter="{Binding}"
+                                           Invoked="SwipeItem_Invoke_Edit"/>
+                                <SwipeItem Text="Delete"
+                                           BackgroundColor="Red"
+                                           CommandParameter="{Binding}"
+                                           Invoked="SwipeItem_Invoke_Delete"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding IdPatient}"
+                               Grid.Row="0" Grid.RowSpan="2"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding FirstName}"
+                              Grid.Row="0" Grid.Column="1"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="20"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding LastName}"
+                              Grid.Row="0" Grid.Column="1"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="20"
+                               FontAttributes="Bold"/>
+                        
+                      
+
+                    </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
