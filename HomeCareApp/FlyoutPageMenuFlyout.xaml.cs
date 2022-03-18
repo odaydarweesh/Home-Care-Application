@@ -54,7 +54,7 @@ namespace HomeCareApp
                 {
                     new FlyoutPageMenuFlyoutMenuItem { Id = 0, Title = "Home" ,IconSource="home.png" , TargetType=typeof(HomePage)},
                     new FlyoutPageMenuFlyoutMenuItem { Id = 1, Title = "Patients" ,IconSource="patient.png", TargetType=typeof(PatientPageDetails)},
-                    new FlyoutPageMenuFlyoutMenuItem { Id = 2, Title = "Colleages" ,IconSource="nurse.png", TargetType=typeof(Colleages)},
+                    new FlyoutPageMenuFlyoutMenuItem { Id = 2, Title = "Colleages" ,IconSource="nurse.png", TargetType=typeof(UserPageDetails)},
                     new FlyoutPageMenuFlyoutMenuItem { Id = 3, Title = "Visits" ,IconSource="calendar.png", TargetType=typeof(VisitPageDetails)},
                     new FlyoutPageMenuFlyoutMenuItem { Id = 3, Title = "About us" ,IconSource="info.png", TargetType=typeof(AboutPage)},
                     new FlyoutPageMenuFlyoutMenuItem { Id = 4, Title = "Log out" ,IconSource="sign.png", TargetType=typeof(LoginPage)},

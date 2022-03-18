@@ -1,57 +1,57 @@
-﻿using System;
+﻿using HomeCareApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HomeCareApp.Model;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace HomeCareApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PatientPageDetails : ContentPage
+    public partial class UserPageDetails : ContentPage
     {
-        public PatientPageDetails()
+        public UserPageDetails()
         {
             InitializeComponent();
         }
-
         protected override async void OnAppearing()
         {
             try
             {
                 base.OnAppearing();
-                myPatient.ItemsSource = await App.MyDatabase.ReadPatients();
+                myUser.ItemsSource = await App.MyDatabase.ReadUsers();
             }
             catch { }
         }
         async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PatientDetail());
+            await Navigation.PushAsync(new UserDetail());
 
         }
-       async void SwipeItem_Invoke_Edit(object sender, EventArgs e)
+        async void SwipeItem_Invoke_Edit(object sender, EventArgs e)
         {
             var item = sender as SwipeItem;
-            var pati = item.CommandParameter as Patient;
-            await Navigation.PushAsync(new PatientDetail(pati));
+            var use = item.CommandParameter as User;
+            await Navigation.PushAsync(new UserDetail(use));
         }
         async void SwipeItem_Invoke_Delete(object sender, EventArgs e)
         {
             var item = sender as SwipeItem;
-            var pati = item.CommandParameter as Patient;
-            var result = await DisplayAlert("Delete", $"Delete { pati.FirstName}  from the database", "Yes", "No");
-            if(result)
+            var use = item.CommandParameter as User;
+            var result = await DisplayAlert("Delete", $"Delete { use.FirstName}  from the database", "Yes", "No");
+            if (result)
             {
-                await App.MyDatabase.DeletePatient(pati);
-                myPatient.ItemsSource= await App.MyDatabase.ReadPatients();
+                await App.MyDatabase.DeleteUser(use);
+                myUser.ItemsSource = await App.MyDatabase.ReadUsers();
             }
         }
 
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            myPatient.ItemsSource = await App.MyDatabase.SearchPatient(e.NewTextValue);
+            myUser.ItemsSource = await App.MyDatabase.SearchUser(e.NewTextValue);
         }
     }
 }

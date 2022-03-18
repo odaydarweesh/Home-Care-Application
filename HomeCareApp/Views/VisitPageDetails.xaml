@@ -25,12 +25,17 @@
                                HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand"/>
                         <Label Text="{Binding StartTime}"
-                              Grid.Row="0" Grid.Column="1"
+                              Grid.Row="1" Grid.Column="1"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="20"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding VisitName}"
+                              Grid.Row="2" Grid.Column="1"
                                VerticalOptions="CenterAndExpand"
                                FontSize="20"
                                FontAttributes="Bold"/>
                         <Label Text="{Binding EndTime}"
-                              Grid.Row="1" Grid.Column="1"/>
+                              Grid.Row="3" Grid.Column="1"/>
                                                     
                     </Grid>
                   </DataTemplate>

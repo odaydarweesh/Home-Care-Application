@@ -15,7 +15,7 @@ namespace HomeCareApp.Model
         [Required(AllowEmptyStrings = false)]
         public string LastName { get; set; }
         public string Personnummer { get; set; }
-        public string Adress { get; set; }
+        public string Adress { get; set; } 
         [Required(AllowEmptyStrings = false)]
         public string PhoneNumber { get; set; }
         [Required]

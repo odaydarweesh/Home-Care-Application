@@ -2,15 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Patients"
-             x:Class="HomeCareApp.Views.PatientPageDetails">
+             x:Class="HomeCareApp.Views.UserPageDetails">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add"
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <SearchBar Placeholder="Search Patient"
+        <SearchBar Placeholder="Search User"
                    TextChanged="SearchBar_TextChanged"/>
-        <CollectionView x:Name="myPatient"
+        <CollectionView x:Name="myUser"
                           SelectionMode="Single"
                           Margin="20,5,20,0">
 
@@ -29,50 +29,47 @@
                                            Invoked="SwipeItem_Invoke_Delete"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                    <Grid RowSpacing="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding IdPatient}"
-                               Grid.Row="0" Grid.RowSpan="2"
-                               HorizontalOptions="CenterAndExpand"
-                               VerticalOptions="CenterAndExpand"/>
-                        <Label Text="{Binding FirstName}"
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                           
+                            <Label Text="{Binding FirstName}"
                               Grid.Row="0" Grid.Column="1"
                                VerticalOptions="CenterAndExpand"
                                FontSize="20"
                                FontAttributes="Bold"/>
-                        <Label Text="{Binding LastName}"
+                            <Label Text="{Binding LastName}"
                               Grid.Row="1" Grid.Column="1"
                                VerticalOptions="CenterAndExpand"
                                FontSize="20"
                                FontAttributes="Bold"/>
-                        <Label Text="{Binding Personnummer}"
+                            <Label Text="{Binding Personnummer}"
                               Grid.Row="2" Grid.Column="1"
                                VerticalOptions="CenterAndExpand"
                                FontSize="20"
                                FontAttributes="Bold"/>
-                        <Label Text="{Binding Adress}"
+                            <Label Text="{Binding Adress}"
                               Grid.Row="3" Grid.Column="1"
                                VerticalOptions="CenterAndExpand"
                                FontSize="20"
                                FontAttributes="Bold"/>
-                        <Label Text="{Binding PhoneNumber}"
+                            <Label Text="{Binding PhoneNumber}"
                               Grid.Row="4" Grid.Column="1"
                                VerticalOptions="CenterAndExpand"
                                FontSize="20"
                                FontAttributes="Bold"/>
-                        <Label Text="{Binding Email}"
+                            <Label Text="{Binding Email}"
                               Grid.Row="5" Grid.Column="1"
                                VerticalOptions="CenterAndExpand"
                                FontSize="20"
                                FontAttributes="Bold"/>
-                      
 
-                    </Grid>
+
+                        </Grid>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

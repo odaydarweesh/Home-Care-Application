@@ -29,53 +29,7 @@ namespace HomeCareApp.Views
             EntryLastName.Text = patient.LastName;
             EntryFirstName.Focus();
         }
-        //async void Button_Clicked(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(EntryFirstName.Text) || string.IsNullOrWhiteSpace(EntryLastName.Text))
-        //    {
-        //        await DisplayAlert("Invalid", "Blank or WhiteSpace value is Invalid", "Ok");
-        //    }
-        //    else
-        //        AddNewPatient();
-        //}
-        //async void AddNewPatient()
-        //{
-        //    //await App.MyDatabase.AddPatient(new Model.Patient
-        //    //{
-        //    //    FirstName = FirstNameEntry.Text,
-        //    //    LastName = LastNameEntry.Text
-        //    //});
-        //    await Navigation.PopAsync();
-        //}
-
-
-
-
-        //async void Handle_Clicked(object sender, System.EventArgs e)
-        //{
-        //    var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
-        //    var db = new SQLiteConnection(dbpath);
-        //    db.CreateTable<User>();
-
-        //    var item = new User()
-        //    {
-        //        FirstName = EntryFirstName.Text,
-        //        LastName = EntryLastName.Text,
-        //        Personnummer = EntryPersonnummer.Text,
-        //        Adress = EntryAdress.Text,
-        //        PhoneNumber = EntryPhoneNumber.Text,
-        //        Email = EntryEmaile.Text,
-
-
-        //    };
-        //    db.Insert(item);
-        //    Device.BeginInvokeOnMainThread(async () =>
-        //    {
-        //        var result = await this.DisplayAlert("Congratulation", "New patient added successfully", "Yes", "Cancle");
-        //        if (result)
-        //            await Navigation.PushAsync(new PatientPage_Details());
-        //    });
-        //}
+         
 
         async void Handle_Clicked(object sender, EventArgs e)
         {
@@ -90,9 +44,8 @@ namespace HomeCareApp.Views
             else
             {
                 AddNewPatient();
-        }
+            }
           
-
         }
 
         async void AddNewPatient()
@@ -121,9 +74,5 @@ namespace HomeCareApp.Views
             await Navigation.PopAsync();
 
         }
-
-
-
-
     }
 }

@@ -7,7 +7,12 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
         <Image VerticalOptions="CenterAndExpand" Source="Care.jpg"/>
-
+            <StackLayout >
+                <Button Text="1" WidthRequest="50" 
+            HorizontalOptions="Center"></Button>
+                <Button Text="2" WidthRequest="50" 
+            HorizontalOptions="Center"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -26,9 +26,6 @@
               Grid.Row="2"
               Text="Oday Darweesh"
               Style="{DynamicResource SubtitleStyle}"/>
-            
-            
-
         </Grid>
       </ListView.Header>
       <ListView.ItemTemplate>
