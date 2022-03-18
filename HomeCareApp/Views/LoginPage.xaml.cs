@@ -34,7 +34,7 @@ namespace HomeCareApp.Views
             if (myquery != null)
             {
                 App.UserName = EntryUserName.Text.ToString();
-                //App.Current.MainPage = new NavigationPage(new HomePage());
+                App.Current.MainPage = new NavigationPage(new HomePage());
                 App.Current.MainPage = new NavigationPage(new FlyoutPageMenu());
 
             }
