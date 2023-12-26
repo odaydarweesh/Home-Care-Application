@@ -21,21 +21,33 @@ namespace HomeCareApp.Views
             SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
 
+
         }
-        async  void Handle_Clicked(object sender, System.EventArgs e)
+        async  void Handle_Clicked_SignUp(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new RegistrationPage());
+            await Navigation.PushAsync(new NewUserPage());
         }
-        void Handle_Clicked_1(object sender, System.EventArgs e)
+
+        async void Handle_Clicked_ForgotPassword(object sender, System.EventArgs e)
         {
-            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            App.Current.MainPage = new NavigationPage(new ForgotPasswordPage());
+
+        }
+        async void Handle_Clicked_Login(object sender, System.EventArgs e)
+        {
+            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HomeCareDatabase.db3");
             var db = new SQLiteConnection(dbpath);
             var myquery = db.Table<User>().Where(u => u.UserName.Equals(EntryUserName.Text) && u.Password.Equals(EntryUserPassword.Text)).FirstOrDefault();
             if (myquery != null)
             {
-                App.UserName = EntryUserName.Text.ToString();
-                App.Current.MainPage = new NavigationPage(new HomePage());
+                App.UserId = myquery.UserId;
+                App.UserName = myquery.UserName;
+                App.UserEmail = myquery.Email;
+                App.UserRole = myquery.UserRole;
+                App.Personnummer = myquery.Personnummer;
+                App.Current.MainPage = new NavigationPage(new VisitPage());
                 App.Current.MainPage = new NavigationPage(new FlyoutPageMenu());
+
 
             }
             else

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             Title="Add a new employee"
+             x:Class="HomeCareApp.Views.NewUserPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10" Padding="5">
+                <Grid Margin="5" RowSpacing="2" ColumnSpacing="2" Background="#0077be" Padding="10" >
+                    <Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Employee Role" FontSize="16" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Picker x:Name="EntryUserRole" Grid.Row="0" Grid.Column="1" BackgroundColor="AliceBlue"  TitleColor="Black"  TextColor="Black" Title="select a role:" SelectedItem="{Binding UserRole}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Manager</x:String>
+                                <x:String>Nurse</x:String>
+                                <x:String>AssistantNurse</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label Text="UserName" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="1" Grid.Column="1" >
+                        <Entry Placeholder="UserName" FontSize="16" BackgroundColor="AliceBlue"  TextColor="Black" PlaceholderColor="SeaGreen" x:Name="EntryUserName"/>
+                    </StackLayout>
+                    <Label Text="Password" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="2" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="2" Grid.Column="1">
+                        <Entry Placeholder="Password" IsPassword="True" FontSize="16"  BackgroundColor="AliceBlue"  TextColor="Black" PlaceholderColor="SeaGreen" x:Name="EntryUserPassword"/>
+                    </StackLayout>
+                    <Label Text="FirstName" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="3" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="3" Grid.Column="1">
+                        <Entry Placeholder="FirstName" FontSize="16"  BackgroundColor="AliceBlue"  TextColor="Black" PlaceholderColor="SeaGreen" x:Name="EntryFirstName"/>
+                    </StackLayout>
+                    <Label Text="LastName" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="4" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="4" Grid.Column="1" >
+                        <Entry Placeholder="LaststName" FontSize="16"  BackgroundColor="AliceBlue"  TextColor="Black" PlaceholderColor="SeaGreen" x:Name="EntryLastName"/>
+                    </StackLayout>
+                    <Label Text="Personnummer" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="5" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="5" Grid.Column="1" >
+                        <Entry Placeholder="Personnummer" FontSize="16"  BackgroundColor="AliceBlue"  TextColor="Black" PlaceholderColor="SeaGreen" x:Name="EntryPersonnummer"/>
+                    </StackLayout>
+                    <Label Text="Adress" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="6" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="6" Grid.Column="1">
+                        <Entry Placeholder="Adress" FontSize="16"  BackgroundColor="AliceBlue"  TextColor="Black" PlaceholderColor="SeaGreen"  x:Name="EntryAdress"/>
+                    </StackLayout>
+                    <Label Text="Email" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="7" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="7" Grid.Column="1">
+                        <Entry Placeholder="Email" FontSize="16"  BackgroundColor="AliceBlue"  TextColor="Black" PlaceholderColor="SeaGreen" x:Name="EntryUserEmaile"/>
+                    </StackLayout>
+                    <Label Text="PhoneNumber" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="8" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="8"  Grid.Column="1">
+                        <Entry Placeholder="PhoneNumber" FontSize="16"  BackgroundColor="AliceBlue"  TextColor="Black" PlaceholderColor="SeaGreen" x:Name="EntryUserPhoneNumber"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="9">
+                        <Button Text="Register" HorizontalOptions="Center"   FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="Handle_Clicked"/>
+
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

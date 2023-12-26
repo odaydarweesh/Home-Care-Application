@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.MedicinePage"
+             Title="Medicines">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Button Clicked="Button_OnClicked" FontSize="15"  Margin="10" HeightRequest="40" BackgroundColor="Green" TextColor="White" CommandParameter="{Binding .}" Text="Add a new Medicine" />
+
+            </StackLayout>
+            <SearchBar Placeholder="Search Medicine" TextChanged="SearchBar_TextChanged"></SearchBar>
+
+            <ScrollView>
+                <ListView x:Name="MedicineList" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="OnItemSelected" Margin="5,5,5,5">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnMore_Edit" CommandParameter="{Binding .}" Text="Edit" IsDestructive="True"/>
+                            <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+                                <Grid Margin="5" RowSpacing="2" ColumnSpacing="2" Background="#0077be" Padding="10" >
+                                    <Grid.RowDefinitions>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding PatientID}" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding MedicineID}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="0" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                    <Label Text="Medicine Time" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding Time}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                                    <Label Text="Medicine Name" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="2" Grid.Column="0" BackgroundColor="Gray"  TextColor="White"/>
+                                    <Label Text="{Binding MedicineName}" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="2" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                    <Label Text="Description" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="3" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+
+                                    <Label Text="{Binding DescriptionName}" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="3" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                </Grid>
+                            </ViewCell>
+                            <!-- <ViewCell Text="" TextColor="Black"/>-->
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

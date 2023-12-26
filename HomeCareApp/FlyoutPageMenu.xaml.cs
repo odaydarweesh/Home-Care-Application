@@ -16,8 +16,11 @@ namespace HomeCareApp
         {
             InitializeComponent();
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
-            string name = App.UserName;
+            FlyoutPage.ListView1.ItemSelected += ListView_ItemSelected;
 
+            string name = App.UserName;
+            string userRole = App.UserRole;
+            string email = App.UserEmail;
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

@@ -10,12 +10,7 @@ namespace HomeCareApp.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-        //public IPatientdataStore<Patient> DataStore1 => DependencyService.Get<IPatientdataStore<Patient>>();
-        //public IUserdataStore<User> DataStore1 => DependencyService.Get<IUserdataStore<User>>();
-
-
-
+        
         bool isBusy = false;
         public bool IsBusy
         {
