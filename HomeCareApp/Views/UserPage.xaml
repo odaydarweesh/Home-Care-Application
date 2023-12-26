@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.UserPage"
+             Title="Employees">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Button Clicked="AddUserOnClicked" FontSize="15"  Margin="10" HeightRequest="40" BackgroundColor="Green" TextColor="White" CommandParameter="{Binding .}" Text="Add a new Employee" />
+
+            </StackLayout>
+            <SearchBar Placeholder="Search Employee" TextChanged="SearchBar_TextChanged"></SearchBar>
+
+            <ScrollView>
+                <ListView x:Name="UserList" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="OnItemSelected" Margin="5,5,5,5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="OnMoreEdit" CommandParameter="{Binding .}" Text="Edit" IsDestructive="True"/>
+                                    <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                <Grid Margin="5" RowSpacing="2" ColumnSpacing="2" Background="#0077be" Padding="10" >
+                                    <Grid.RowDefinitions>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Employee First Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding FirstName}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="0" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                    <Label Text="Employee Last  Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding LastName}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                    <Label Text="Employee Adress" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="2" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding Adress}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="2" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                    <Label Text="Employee PhoneNumber" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="3" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding PhoneNumber}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="3" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                    <Label Text="Employee Email" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="4" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding Email}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="4" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                                </Grid>
+                            </ViewCell>
+                            <!-- <ViewCell Text="" TextColor="Black"/>-->
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -10,7 +10,7 @@
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:FlyoutPageMenuFlyoutMenuItem}">
                     <local:FlyoutPageMenuFlyoutMenuItem Title="Home"  TargetType="{x:Type views:HomePage}"/>
-                    <local:FlyoutPageMenuFlyoutMenuItem Title="Patient"  TargetType="{x:Type views:PatientDetail}"/>
+                    <local:FlyoutPageMenuFlyoutMenuItem Title="Patient"  TargetType="{x:Type views:PatientPage}"/>
                     <local:FlyoutPageMenuFlyoutMenuItem Title="Logout"  TargetType="{x:Type views:LoginPage}"/>
 
                 </x:Array>

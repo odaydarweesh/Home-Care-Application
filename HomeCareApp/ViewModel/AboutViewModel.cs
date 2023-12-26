@@ -16,8 +16,6 @@ namespace HomeCareApp.ViewModels
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://ranyyasso.wixsite.com/grupp23/about"));
         }
 
-
-
         public ICommand OpenWebCommand { get; }
     }
 }

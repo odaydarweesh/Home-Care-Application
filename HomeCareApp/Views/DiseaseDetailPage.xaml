@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.DiseaseDetailPage"
+              Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Background="#0077be"  Margin="10,10,10,10" Padding="40">
+                <Label Text="Disease" FontSize="30" HeightRequest="60"  BackgroundColor="#0077be" HorizontalOptions="Center"  VerticalOptions="Center"  TextColor="White"/>
+
+                <Grid RowSpacing="0" ColumnSpacing="0" >
+
+
+                    <Label Text="Patien Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PatientNameShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="0" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Disease Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="DiseaseNameShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                       
+                </Grid>
+                <Label Text="Description" FontSize="15" HeightRequest="35" Padding="8"   BackgroundColor="Gray"  TextColor="White"/>
+                <Label x:Name="DiseaseDescriptionShow" FontSize="15" Padding="20" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+

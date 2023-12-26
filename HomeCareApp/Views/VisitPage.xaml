@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.VisitPage"
+             Title="Visits">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Button Clicked="AddVisitOnClicked" FontSize="15"  Margin="10" HeightRequest="40" BackgroundColor="Green" TextColor="White" CommandParameter="{Binding .}" Text="Add a new Visit" />
+
+            </StackLayout>
+            <SearchBar Placeholder="Search Visit" TextChanged="SearchBar_TextChanged"></SearchBar>
+
+            <ScrollView>
+        <ListView x:Name="VisitList" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="OnItemSelected" Margin="5,5,5,5">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnMoreEdit" CommandParameter="{Binding .}" Text="Edit" IsDestructive="True"/>
+                            <MenuItem Clicked="OnDelete"  CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+
+                        <Grid Margin="5" RowSpacing="2" ColumnSpacing="2" Background="#0077be" Padding="10" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4"/>
+                                <RowDefinition Height="4"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding PatientID}" TextColor="White" Padding="8" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding VisitID}" TextColor="White" Padding="8"   Grid.Row="2" Grid.RowSpan="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding VisitName}" TextColor="White" Padding="8"  Grid.Row="2" Grid.Column="1" VerticalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="Start time" TextColor="White" Background="LightGreen" Padding="8"  Grid.Row="3" Grid.Column="1" VerticalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold"/>
+                                <Label Text="{Binding StartTime}" Background="LightGreen" TextColor="White" Padding="8"  Grid.Row="4" Grid.Column="1" VerticalOptions="CenterAndExpand" FontSize="15" FontAttributes="Bold"/>
+                                <Label Text="End time" TextColor="White"  Background="Red" Padding="8"  Grid.Row="3" Grid.Column="2" VerticalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="{Binding EndTime}" TextColor="White" Background="Red" Padding="8"  Grid.Row="4" Grid.Column="2" VerticalOptions="CenterAndExpand" FontSize="15" FontAttributes="Bold"/>
+                        </Grid>
+                    </ViewCell>
+                    <!-- <ViewCell Text="" TextColor="Black"/>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+      </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

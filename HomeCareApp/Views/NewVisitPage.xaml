@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             Title="Add a new Visit"
+             x:Class="HomeCareApp.Views.NewVisitPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10" Padding="5">
+                <StackLayout Grid.Row="0">
+                    <Button Text="Click to update the employee list" Clicked="SelectedUser" Margin="2" Background= "Green" BackgroundColor="Azure" TextColor="Black" VerticalOptions="CenterAndExpand"/>
+                    <Picker x:Name="EntryUserFirstName" Title="Select an Employee" ItemDisplayBinding="{Binding FirstName}"  Margin="2" Background="yellow" BackgroundColor="Azure" TextColor="Black" VerticalOptions="CenterAndExpand"/>
+                </StackLayout >
+                <StackLayout Grid.Row="1">
+                    <Button Text="Click to update the patient list " Clicked="SelectedPatient" Margin="2" Background= "Green" BackgroundColor="Azure" TextColor="Black" VerticalOptions="CenterAndExpand"/>
+                    <Picker x:Name="EntryPatientFirstName" Title="Select an Patient" ItemDisplayBinding="{Binding FirstName}"  Margin="2" Background= "yellow" BackgroundColor="Azure" TextColor="Black" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2">
+                    <Picker x:Name="EntryVisitName" Title="Select a Visit:" SelectedItem="{Binding VisitName}" TitleColor="Black" Margin="2" Background= "yellow" BackgroundColor="Azure" TextColor="Black" VerticalOptions="CenterAndExpand" >
+                        <Picker.ItemsSource TitleColor="White" TextColor="White" Grid.Row="0">
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Morgon Besök</x:String>
+                                <x:String>Förmidag Besök</x:String>
+                                <x:String>Lunck Besök</x:String>
+                                <x:String>Eftermidag Besök</x:String>
+                                <x:String>Kvälls Besök1</x:String>
+                                <x:String>Kvälls Besök2</x:String>
+                                <x:String>Natt Besök</x:String>
+
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                </StackLayout>
+
+                <Grid Margin="5" RowSpacing="2" ColumnSpacing="2" Background="#0077be" Padding="10" >
+                    <Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                   
+                        <Label Text="StartTime" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="0" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="0" Grid.Column="1" >
+                        <TimePicker x:Name="EntryStartTime" BackgroundColor="AliceBlue"  TextColor="Black"  ></TimePicker>
+                    </StackLayout>
+                    <Label Text="EndTime" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="0"  BackgroundColor="Gray" TextColor="White"/>
+                    <StackLayout Grid.Row="1" Grid.Column="1" >
+                        <TimePicker x:Name="EntryEndTime" BackgroundColor="AliceBlue"  TextColor="Black"  ></TimePicker>
+                    </StackLayout>
+
+
+
+                </Grid>
+                <StackLayout >
+                    <Button Text="Save" HorizontalOptions="Center"   FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="Button_Clicked"/>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

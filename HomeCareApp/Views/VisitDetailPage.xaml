@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.VisitDetailPage"
+              Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Background="#0077be"  Margin="10,10,10,10" Padding="40">
+                <Label Text="Visit" FontSize="30" HeightRequest="60"  BackgroundColor="#0077be" HorizontalOptions="Center"  VerticalOptions="Center"  TextColor="White"/>
+
+                <Grid RowSpacing="0" ColumnSpacing="0" >
+                     
+                    <Label Text="Patient name"  FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PatientNameShow"  FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="0" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Patient Last name"  FontSize="15" HeightRequest="35" Padding="8" Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PatientLastNameShow"  FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Type of visit" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="2" Grid.Column="0" BackgroundColor="Gray"  TextColor="White"/>
+                    <Label x:Name="VisitNameShow" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="2" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Start time" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="3" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="StartTimeShow" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="3" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="End time" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="4" Grid.Column="0" BackgroundColor="Gray"  TextColor="White"/>
+                    <Label x:Name="EndTimeShow" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="4" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+
+                    <Label Text="Employee Name" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="5" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="UserFirstNameShow" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="5" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Sign Status" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="6" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="SignVisitShow"  FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="6" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+
+                </Grid>
+                <Switch Toggled="OnToggled" HeightRequest="20"  Grid.Row="5" Grid.Column="0" BackgroundColor="FloralWhite"   />
+                <Label HeightRequest="120"  BackgroundColor="#0077be" HorizontalOptions="Center"  VerticalOptions="Center"  TextColor="White"/>
+                <Button Text="Patients Medicine" FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="SignMedicine"/>
+                <Button Text="Patients Effort" FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="SignEffort"/>
+                <Button Text="Patients Details" FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="SeAllPatientsDetails"/>
+
+            </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

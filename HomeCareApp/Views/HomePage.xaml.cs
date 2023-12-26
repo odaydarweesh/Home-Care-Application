@@ -15,16 +15,15 @@ namespace HomeCareApp.Views
     {
         public HomePage()
         {
-            //SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
-            //BindingContext = new HomePageViewModel();
         }
         protected override void OnAppearing()
         {
             try
             {
                 base.OnAppearing();
-                //myCollectionview.ItemSource = await App.MyDatabase.GetPatient();
+           
+
             }
             catch { }
         }

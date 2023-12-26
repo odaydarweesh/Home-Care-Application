@@ -4,24 +4,24 @@
              x:Class="HomeCareApp.Views.LoginPage"
              Title="Login">
     <ContentPage.Content>
-            <ScrollView>
-                <StackLayout>
-                    <Grid  VerticalOptions="CenterAndExpand" Margin="20" RowSpacing="20">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                            <Entry Placeholder="UserName"  x:Name="EntryUserName" Grid.Row="0"/>
-                            <Entry Placeholder="Password" x:Name="EntryUserPassword" IsPassword="True" Grid.Row="1"/>
-                            <Button Text=" Login" Grid.Row="2" BackgroundColor="#0077be" TextColor=" White" Clicked="Handle_Clicked_1"/>
-                            <Button Text="SignUp" Grid.Row="3" Clicked="Handle_Clicked"/>
-                        
-                    </Grid>
-                </StackLayout>
-            </ScrollView>
+        <ScrollView>
+            <StackLayout>
+                <Image VerticalOptions="CenterAndExpand"  Margin="50" Source="Care.jpg"/>
+                <Label Text="Welcome To The Home Care App"  Margin="40" VerticalOptions="Center"
+                               FontSize="20"/>
+                <Grid  VerticalOptions="CenterAndExpand" Margin="50" RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry Placeholder="UserName"  x:Name="EntryUserName" Grid.Row="0"/>
+                    <Entry Placeholder="Password" x:Name="EntryUserPassword" IsPassword="True" Grid.Row="1"/>
+                    <Button Text="Login" Grid.Row="2" BackgroundColor="#0077be" TextColor=" White" Clicked="Handle_Clicked_Login"/>
+                    <Button Text="Forgot Password" Grid.Row="3" BackgroundColor="#0077be" TextColor=" White" Clicked="Handle_Clicked_ForgotPassword"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

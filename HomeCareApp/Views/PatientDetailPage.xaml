@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.PatientDetailPage"
+              Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Background="#0077be"  Margin="10,10,10,10" Padding="40">
+                <Label Text="Patient" FontSize="30" HeightRequest="60"  BackgroundColor="#0077be" HorizontalOptions="Center"  VerticalOptions="Center"  TextColor="White"/>
+
+                <Grid RowSpacing="0" ColumnSpacing="0" >
+
+
+                    <Label Text="Patien FirstName" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PatientFirstNameShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="0" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Patien LastName" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PatientLastNameShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Patien Personnummer" FontSize="13" HeightRequest="35" Padding="8" Grid.Row="2" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PersonnummerShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="2" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Patien PhoneNumber" FontSize="13" HeightRequest="35" Padding="8" Grid.Row="3" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PhoneNumberShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="3" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Patients Adress" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="4" Grid.Column="0" BackgroundColor="Gray"  TextColor="White"/>
+                    <Label x:Name="AdressShow" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="4" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Patients Email"  FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="5" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="EmailShow" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="5" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    
+                   
+                </Grid>
+                <Button Text="Patients Visit" FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="SeAllPatientsVisit"/>
+                <Button Text="Patients Effort" FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="SeAllPatientsEffort"/>
+                <Button Text="Patients Disease" FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="SeAllPatientsDisease"/>
+                <Button Text="Patients Medicine" FontSize="15" HeightRequest="40" BackgroundColor="Green" TextColor="White" Clicked="SeAllPatientsMedicine"/>
+                <Label Text="Patients Details"  FontSize="15" HeightRequest="35" Padding="8"   BackgroundColor="Gray" TextColor="White"/>
+                <Label x:Name="DescriptionShow"  FontSize="15" Padding="20" BackgroundColor="FloralWhite"  TextColor="Black"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.EffortDetailPage"
+              Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Background="#0077be"  Margin="10,10,10,10" Padding="40">
+                <Label Text="Effort" FontSize="30" HeightRequest="60"  BackgroundColor="#0077be" HorizontalOptions="Center"  VerticalOptions="Center"  TextColor="White"/>
+
+                <Grid RowSpacing="0" ColumnSpacing="0" >
+
+
+                    <Label Text="Patien Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PatientFirstNameShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="0" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Effort Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="EffortNameShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                    
+                    <Label Text="Employee" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="2" Grid.Column="0" BackgroundColor="Gray"  TextColor="White"/>
+                    <Label x:Name="UserFirstNameShow" FontSize="15" HeightRequest="35" Grid.Row="2" Grid.Column="1" Padding="5" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Sign Status" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="3" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="SignEffortShow"  FontSize="15" HeightRequest="35" Grid.Row="3" Grid.Column="1" Padding="5" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+
+                </Grid>
+                <Switch Toggled="OnToggled" HeightRequest="35"  Grid.Row="5" Grid.Column="0" BackgroundColor="FloralWhite"   />
+
+                <Label Text="Description" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="2" Grid.Column="0" BackgroundColor="Gray"  TextColor="White"/>
+                <Label x:Name="DescriptionShow" FontSize="15" HeightRequest="650" Padding="8"   Grid.Row="2" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+

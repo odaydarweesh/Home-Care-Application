@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.MedicineDetailPage"
+              Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Background="#0077be"  Margin="10,10,10,10" Padding="40">
+                <Label Text="Medicine" FontSize="30" HeightRequest="60"  BackgroundColor="#0077be" HorizontalOptions="Center"  VerticalOptions="Center"  TextColor="White"/>
+
+                <Grid RowSpacing="0" ColumnSpacing="0" >
+
+
+                    <Label Text="Patien Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="PatientNameShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="0" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Medicine Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="MedicineNameShow" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    
+                    <Label Text="Time"  FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="2" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="TimeShow" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="2" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Employee" FontSize="15" HeightRequest="35" Padding="8"   Grid.Row="3" Grid.Column="0" BackgroundColor="Gray"  TextColor="White"/>
+                    <Label x:Name="UserFirstNameShow" FontSize="15" HeightRequest="35" Grid.Row="3" Grid.Column="1" Padding="5" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+                    <Label Text="Sign Status" FontSize="15" HeightRequest="20" Grid.Row="4" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                    <Label x:Name="SignMedicineShow"  FontSize="15" HeightRequest="35" Grid.Row="4" Grid.Column="1" Padding="5" BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+
+                </Grid>
+                <Switch Toggled="OnToggled" HeightRequest="20"  Grid.Row="5" Grid.Column="0" BackgroundColor="FloralWhite"   />
+
+                <Label Text="Description" FontSize="15" HeightRequest="32" Padding="8"   BackgroundColor="Gray"  TextColor="White"/>
+                <Label x:Name="DescriptionNameShow"  FontSize="15" HeightRequest="600" Padding="25"   BackgroundColor="FloralWhite"  TextColor="Black"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+

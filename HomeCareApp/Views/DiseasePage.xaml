@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeCareApp.Views.DiseasePage"
+             Title="Diseases">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Button Clicked="Button_OnClicked" FontSize="15"  Margin="10" HeightRequest="40" BackgroundColor="Green" TextColor="White" CommandParameter="{Binding .}" Text="Add a new Disease" />
+
+            </StackLayout>
+            <SearchBar Placeholder="Search Disease" TextChanged="SearchBar_TextChanged"></SearchBar>
+
+            <ScrollView>
+                <ListView x:Name="DiseaseList" HasUnevenRows="true" SeparatorVisibility="None" ItemTapped="OnItemSelected" Margin="5,5,5,5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="OnMore_Edit" CommandParameter="{Binding .}" Text="Edit" IsDestructive="True"/>
+                                    <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                <Grid Margin="5" RowSpacing="2" ColumnSpacing="2" Background="#0077be" Padding="10" >
+                                    <Grid.RowDefinitions>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Patient PatientID" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding PatientID}" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="0" Grid.Column="1" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="Patient DiseaseID" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding DiseaseID}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="1" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                    <Label Text="Patient Disease Name" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="2" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding DiseaseName}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="2" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                    <Label Text="Patient Description" FontSize="15" HeightRequest="35" Padding="8" Grid.Row="3" Grid.Column="0" BackgroundColor="Gray" TextColor="White"/>
+                                    <Label Text="{Binding DiseaseDescription}" FontSize="15" HeightRequest="35" Padding="8"  Grid.Row="3" Grid.Column="1" BackgroundColor="FloralWhite"  TextColor="Black"/>
+                                   
+                                </Grid>
+                            </ViewCell>
+                            <!-- <ViewCell Text="" TextColor="Black"/>-->
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

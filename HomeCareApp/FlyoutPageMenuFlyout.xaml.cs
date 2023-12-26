@@ -1,4 +1,6 @@
-﻿using HomeCareApp.ViewModels;
+﻿using HomeCareApp.Model;
+using HomeCareApp.ViewModel;
+using HomeCareApp.ViewModels;
 using HomeCareApp.Views;
 using System;
 using System.Collections.Generic;
@@ -17,60 +19,86 @@ namespace HomeCareApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FlyoutPageMenuFlyout : ContentPage
     {
+        private string name = "Some User Name";
+        private string email = "Some User Email";
+        private string userRole = "Some UserRole";
+
         public ListView ListView;
+        public ListView ListView1;
 
         public FlyoutPageMenuFlyout()
         {
+            BindingContext = this;
+            TheUserName = GetCurrentUserName();//Dessa tre metoder placeras i konstruktor 
+            TheUserEmail = GetCurrentUserEmail(); //så att användarnamn, email och roll visas 
+            TheUserRole = GetCurrentUserRole();//varje gång någon användare loggar in.
 
             InitializeComponent();
+            list1.BindingContext = new FlyoutPageMenuFlyoutViewModel();
+
+            ListView = MenuItemsListView;
+            ListView1 = list1;
+
+
+        }
+        private string GetCurrentUserName()// Detta är en metod som ger användarnamnet på den användare som har loggat in 
+        {
             string name = App.UserName;
 
-            BindingContext = new FlyoutPageMenuFlyoutViewModel();
-            ListView = MenuItemsListView;
+            return name;
         }
-
-        //public string TheUserName
-        //{
-        //    get
-        //    {
-        //        return "Hello " + name;
-        //    }
-        //    set
-        //    {
-        //        name = value;
-        //        OnPropertyChanged("TheUserName");
-        //    }
-        //}
-
-
-
-        private class FlyoutPageMenuFlyoutViewModel : INotifyPropertyChanged
+        private string GetCurrentUserEmail()//Detta är en metod som ger email på den användare som har loggat in
         {
-            public ObservableCollection<FlyoutPageMenuFlyoutMenuItem> MenuItems { get; set; }
+            string email = App.UserEmail;
 
-            public FlyoutPageMenuFlyoutViewModel()
-            {
-                MenuItems = new ObservableCollection<FlyoutPageMenuFlyoutMenuItem>(new[]
-                {
-                    new FlyoutPageMenuFlyoutMenuItem { Id = 0, Title = "Home" ,IconSource="home.png" , TargetType=typeof(HomePage)},
-                    new FlyoutPageMenuFlyoutMenuItem { Id = 1, Title = "Patients" ,IconSource="patient.png", TargetType=typeof(PatientPageDetails)},
-                    new FlyoutPageMenuFlyoutMenuItem { Id = 2, Title = "Colleages" ,IconSource="nurse.png", TargetType=typeof(UserPageDetails)},
-                    new FlyoutPageMenuFlyoutMenuItem { Id = 3, Title = "Visits" ,IconSource="calendar.png", TargetType=typeof(VisitPageDetails)},
-                    new FlyoutPageMenuFlyoutMenuItem { Id = 3, Title = "About us" ,IconSource="info.png", TargetType=typeof(AboutPage)},
-                    new FlyoutPageMenuFlyoutMenuItem { Id = 4, Title = "Log out" ,IconSource="sign.png", TargetType=typeof(LoginPage)},
-                });
-            }
-
-            #region INotifyPropertyChanged Implementation
-            public event PropertyChangedEventHandler PropertyChanged;
-            void OnPropertyChanged([CallerMemberName] string propertyName = "")
-            {
-                if (PropertyChanged == null)
-                    return;
-
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-            #endregion
+            return email;
         }
+        private string GetCurrentUserRole()// Detta är en metod som ger userRole på den användare som har loggat in
+        {
+            string userRole = App.UserRole;
+
+            return userRole;
+        }
+        public string TheUserName
+        {
+            get
+            {
+                return "Hello " + name;
+
+            }
+            set
+            {
+                name = value;
+                OnPropertyChanged("TheUserName");
+            }
+        }
+        public string TheUserEmail
+        {
+            get
+            {
+                return email;
+
+            }
+            set
+            {
+                email = value;
+                OnPropertyChanged("TheUserEmail");
+            }
+        }
+        public string TheUserRole
+        {
+            get
+            {
+                return userRole;
+
+            }
+            set
+            {
+                userRole = value;
+                OnPropertyChanged("TheUserRole");
+            }
+        }
+
+
     }
 }

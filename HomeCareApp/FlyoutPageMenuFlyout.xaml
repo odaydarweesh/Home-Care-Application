@@ -3,51 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HomeCareApp.FlyoutPageMenuFlyout"
              Title="Flyout">
-  <StackLayout>
-    <ListView x:Name="MenuItemsListView"
-              SeparatorVisibility="None"
-              HasUnevenRows="true"
-              ItemsSource="{Binding MenuItems}">
-      <ListView.Header>
-        <Grid BackgroundColor="#03A9F4">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
-          </Grid.ColumnDefinitions>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-          </Grid.RowDefinitions>
-          <Label
-              Grid.Column="1"
-              Grid.Row="2"
-              Text="Oday Darweesh"
-              Style="{DynamicResource SubtitleStyle}"/>
-        </Grid>
-      </ListView.Header>
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
-             <!-- <Label VerticalOptions="FillAndExpand" 
+    <StackLayout>
+        <AbsoluteLayout  Margin="15" BackgroundColor="Navy" WidthRequest="60" HeightRequest="120
+                         " >
+
+            <ListView x:Name="MenuItemsListView" >
+                <ListView.Header>
+                    <Grid BackgroundColor="Navy" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="1" Grid.Row="0"
+          Text="{Binding TheUserName}" FontSize="Default"
+          VerticalOptions="CenterAndExpand" 
+          Style="{DynamicResource SubtitleStyle}"
+                        TextColor="White"/>
+                        <Label Grid.Column="1" Grid.Row="1"
+          Text="{Binding TheUserEmail}" FontSize="Default"
+          VerticalOptions="CenterAndExpand" 
+          Style="{DynamicResource SubtitleStyle}"
+                        TextColor="White"/>
+                        <Label Grid.Column="1" Grid.Row="2"
+          Text="{Binding TheUserRole}" FontSize="Default"
+          VerticalOptions="CenterAndExpand" 
+          Style="{DynamicResource SubtitleStyle}"
+                        TextColor="White"/>
+                    </Grid>
+                </ListView.Header>
+            </ListView>
+       
+        </AbsoluteLayout>
+        
+        <AbsoluteLayout >
+            <ListView  x:Name="list1"  SeparatorVisibility="None"
+              HasUnevenRows="true" ItemsSource="{Binding MenuItems}" Grid.ColumnSpan="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout  Padding="15,2" HorizontalOptions="FillAndExpand">
+                                <!-- <Label VerticalOptions="FillAndExpand" 
                     VerticalTextAlignment="Center" 
                     Text="{Binding Title}" 
                     FontSize="24"/>-->
-                            <Grid Padding="5,10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding IconSource}"/>
-                                <Label Grid.Column="1" Text="{Binding Title}"></Label>
-                            </Grid>
-            </StackLayout>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </StackLayout>
+                                <Grid Padding="5,10" BackgroundColor="#03A9F4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding IconSource}"/>
+                                    <Label Grid.Column="1" Text="{Binding Title}"></Label>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </AbsoluteLayout>
+    </StackLayout>
 </ContentPage>
+

@@ -14,7 +14,6 @@ namespace HomeCareApp.Views
     {
         public AboutPage()
         {
-            //SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
         }
 
@@ -24,7 +23,6 @@ namespace HomeCareApp.Views
             try
             {
                 base.OnAppearing();
-                //myCollectionview.ItemSource = await App.MyDatabase.GetPatient();
             }
             catch { }
         }
