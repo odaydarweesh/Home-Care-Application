@@ -20,8 +20,6 @@ namespace HomeCareApp.Views
         {
             SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
-
-
         }
         async  void Handle_Clicked_SignUp(object sender, System.EventArgs e)
         {
