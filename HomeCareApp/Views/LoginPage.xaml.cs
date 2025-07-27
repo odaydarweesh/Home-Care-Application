@@ -1,4 +1,4 @@
-﻿using HomeCareApp.Model;
+using HomeCareApp.Model;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -35,15 +35,15 @@ namespace HomeCareApp.Views
         {
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HomeCareDatabase.db3");
             var db = new SQLiteConnection(dbpath);
-            var myquery = db.Table<User>().Where(u => u.UserName.Equals(EntryUserName.Text) && u.Password.Equals(EntryUserPassword.Text)).FirstOrDefault();
-            if (myquery != null)
+            var user = db.Table<User>().Where(u => u.UserName.Equals(EntryUserName.Text)).FirstOrDefault();
+            if (user != null && HomeCareApp.Services.Database.Database.VerifyPassword(EntryUserPassword.Text, user.Password))
             {
-                App.UserId = myquery.UserId;
-                App.UserName = myquery.UserName;
-                App.UserEmail = myquery.Email;
-                App.UserRole = myquery.UserRole;
-                App.Personnummer = myquery.Personnummer;
-                App.Current.MainPage = new NavigationPage(new VisitPage());
+                App.UserId = user.UserId;
+                App.UserName = user.UserName;
+                App.UserEmail = user.Email;
+                App.UserRole = user.UserRole;
+                App.Personnummer = user.Personnummer;
+                App.IsUserLoggedIn = true;
                 App.Current.MainPage = new NavigationPage(new FlyoutPageMenu());
 
 

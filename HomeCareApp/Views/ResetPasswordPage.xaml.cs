@@ -1,4 +1,4 @@
-﻿using HomeCareApp.Model;
+using HomeCareApp.Model;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace HomeCareApp.Views
                     var db = new SQLiteConnection(dbpath);
                     var data = db.Table<User>();
                     var data1 = (from User in data where User.Personnummer == personnummer select User).Single();
-                    data1.Password = EntryNewPassword.Text;
+                    data1.Password = HomeCareApp.Services.Database.Database.HashPassword(EntryNewPassword.Text);
                     db.Update(data1);
                     var result = await this.DisplayAlert("Congratulation", "Password changed successfully", "Yes", "Cancle");
                     await Navigation.PushAsync(new LoginPage());
@@ -133,11 +133,10 @@ namespace HomeCareApp.Views
         }
         async void ResetPass(User _user)
         {
-
-            _user.Password = EntryNewPassword.Text;
+            // Hash the password before storing
+            _user.Password = HomeCareApp.Services.Database.Database.HashPassword(EntryNewPassword.Text);
             await App.MyDatabase.UpdateUser(_user);
             await Navigation.PopAsync();
-
         }
     }
 

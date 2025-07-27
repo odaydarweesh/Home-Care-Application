@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
 using Firebase.Database;
+using System.Security.Cryptography;
 
 namespace HomeCareApp.Services.Database
 {
@@ -17,6 +18,40 @@ namespace HomeCareApp.Services.Database
     {
       
         private static SQLiteAsyncConnection conn;
+       
+        /// <summary>
+        /// Hashes a password using SHA256
+        /// </summary>
+        /// <param name="password">Plain text password</param>
+        /// <returns>Hashed password</returns>
+        public static string HashPassword(string password)
+        {
+            if (string.IsNullOrEmpty(password))
+                return string.Empty;
+
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Verifies a password against its hash
+        /// </summary>
+        /// <param name="password">Plain text password</param>
+        /// <param name="hash">Stored hash</param>
+        /// <returns>True if password matches</returns>
+        public static bool VerifyPassword(string password, string hash)
+        {
+            string hashOfInput = HashPassword(password);
+            return StringComparer.OrdinalIgnoreCase.Compare(hashOfInput, hash) == 0;
+        }
        
         public Database()
         {
