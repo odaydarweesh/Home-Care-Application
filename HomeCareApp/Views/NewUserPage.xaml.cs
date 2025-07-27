@@ -1,4 +1,4 @@
-﻿using HomeCareApp.Model;
+using HomeCareApp.Model;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -76,7 +76,7 @@ namespace HomeCareApp.Views
             {
                 UserRole = userRoleEntry,
                 UserName = EntryUserName.Text,
-                Password = EntryUserPassword.Text,
+                Password = HomeCareApp.Services.Database.Database.HashPassword(EntryUserPassword.Text),
                 FirstName = EntryFirstName.Text,
                 LastName = EntryLastName.Text,
                 Personnummer = EntryPersonnummer.Text,

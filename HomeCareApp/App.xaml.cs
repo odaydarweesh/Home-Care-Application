@@ -1,4 +1,4 @@
-﻿using HomeCareApp.Views;
+using HomeCareApp.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -40,18 +40,17 @@ namespace HomeCareApp
 
         public App()
         {
-            if (!IsUserLoggedIn)
+            InitializeComponent();
+
+            // Properly handle user authentication state
+            if (IsUserLoggedIn)
             {
-                MainPage = new NavigationPage(new LoginPage());
+                MainPage = new NavigationPage(new FlyoutPageMenu());
             }
             else
             {
                 MainPage = new NavigationPage(new LoginPage());
             }
-
-            InitializeComponent();
-
-
         }
 
         protected override void OnStart()
